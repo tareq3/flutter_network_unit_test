@@ -2,7 +2,7 @@ import 'dart:convert';
 
 import 'package:http/http.dart';
 
-import 'item_model.dart';
+import 'model/item_model.dart';
 
 class ApiProvider {
   Client client = Client();
