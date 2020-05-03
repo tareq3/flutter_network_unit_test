@@ -5,7 +5,9 @@ import 'package:http/http.dart';
 import 'model/item_model.dart';
 
 class ApiProvider {
-  Client client = Client();
+  Client client ;
+
+  ApiProvider(this.client);
 
 
   fetchPost() async {
