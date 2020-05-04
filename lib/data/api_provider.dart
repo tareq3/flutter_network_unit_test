@@ -1,20 +1,24 @@
 import 'dart:convert';
+import 'dart:io';
 
-import 'package:http/http.dart';
+
+import 'package:dio/dio.dart';
 
 import 'model/item_model.dart';
 
 class ApiProvider {
-  Client client ;
+ final Dio dio;
 
-  ApiProvider(this.client);
+  ApiProvider(this.dio);
 
 
   fetchPost() async {
     final response =
-        await client.get('https://jsonplaceholder.typicode.com/posts/1');
-    ItemModel itemModel = ItemModel.fromJson(json.decode(response.body));
-    print(itemModel.id);
+        await dio.get('https://jsonplaceholder.typicode.com/posts/1');
+
+
+   var itemModel = ItemModel.fromJson(response.data); //we don't need to decode the response to json as dio already had done that for us
+
     return itemModel;
   }
 }
