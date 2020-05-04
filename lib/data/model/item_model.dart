@@ -1,21 +1,23 @@
-class ItemModel {
-  int _userId;
-  int _id;
-  String _title;
-  String _body;
+import 'package:equatable/equatable.dart';
 
-  int get userId => _userId;
+class ItemModel extends Equatable{
+  int userId;
+  int id;
+  String title;
+  String body;
 
-  int get id => _id;
 
-  String get title => _title;
 
-  String get body => _body;
+  ItemModel({this.userId, this.id, this.title, this.body}){}
 
   ItemModel.fromJson(Map<String, dynamic> parsedJson) {
-    _userId = parsedJson['userId'];
-    _id = parsedJson['id'];
-    _title = parsedJson['title'];
-    _body = parsedJson['body'];
+    userId = parsedJson['userId'];
+    id = parsedJson['id'];
+    title = parsedJson['title'];
+    body = parsedJson['body'];
   }
+
+  @override
+  // TODO: implement props
+  List<Object> get props => [userId,id,title,body];
 }
